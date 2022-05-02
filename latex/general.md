@@ -1,5 +1,54 @@
 # LaTeX General Instructions
 
+## Comments
+
+#### Add a comment
+
+For single-line comments, start a line with the "%" character.
+
+```tex
+\somecommand
+% I am a comment
+\begin{something}
+...
+```
+
+#### Add a multiline comment
+
+You can use the "comment" package for multiline comments.
+In the document preamble, add:
+```tex
+\usepackage{comment}
+```
+
+Then:
+```tex
+\somecommand
+\begin{comment}
+    I am a comment and this won't be rendered
+    Neither will this
+    Hahahahahahaha
+\end{comment}
+\par{blah blah blah...}
+```
+
+Alternatively, a more hack-y solution is to add a new commmand that takes an input and does nothing with it. ([thanks ntjess on StackExchange!](https://tex.stackexchange.com/questions/87303/multi-line-block-comments-in-latex))
+In the document preamble, add:
+```tex
+\newcommand{\comment}[1]{}
+```
+
+Then:
+```tex
+\somecommand
+\comment{
+    I am a comment and this won't be rendered
+    Neither will this
+    Hahahahahahaha
+}
+\par{blah blah blah...}
+```
+
 ## Paragraph formatting
 
 #### Add an indent at the start of a paragraph
